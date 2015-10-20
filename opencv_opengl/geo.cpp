@@ -103,19 +103,18 @@ double Ship::deg(double radian) {
     return radian * 180.0 / PI;
 }
 
-
 // "正船首方向距離(y)メソッド"
-double y(double distance, double shipAngle, double gazeDirection) {
-    double theta = gazeDirection - shipAngle;
-    double y = distance * cos(theta);
+double Ship::y(double distance, double shipAngle, double gazeDirection) {
+    double theta = shipAngle - gazeDirection;
+    double y = distance * cos(rad(fabs(theta)));
     return y;
 }
 
 
 // "正横方向距離(x)メソッド"
-double x(double distance, double shipAngle, double gazeDirection) {
-    double theta = gazeDirection - shipAngle;
-    double x = distance * sin(theta);
+double Ship::x(double distance, double shipAngle, double gazeDirection) {
+    double theta = shipAngle - gazeDirection;
+    double x = distance * sin(rad(fabs(theta)));
     if (theta < 0)
         x *= (-1);
     return x;
