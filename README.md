@@ -1,3 +1,6 @@
-# AisViewer2
-# AisViewer2
-# aisView
+## aisView
+２点間の座標から, 画像上のx, y座標[px]を求められる
+
+# 今後
+画像との重ね合わせ
+AISの読み込み
