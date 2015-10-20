@@ -29,6 +29,7 @@
 		684221B01BBB7C8B0031618D /* libopencv_videostab.2.4.11.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6842219E1BBB7C8B0031618D /* libopencv_videostab.2.4.11.dylib */; };
 		684221B21BBB7C970031618D /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 684221B11BBB7C970031618D /* OpenGL.framework */; };
 		684221B41BBB7C9F0031618D /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 684221B31BBB7C9F0031618D /* GLUT.framework */; };
+		688D804C1BD5FC22007814B4 /* gl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 688D804A1BD5FC22007814B4 /* gl.cpp */; settings = {ASSET_TAGS = (); }; };
 		68F4D9BD1BD10AEB00FB55E2 /* geo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 68F4D9BB1BD10AEB00FB55E2 /* geo.cpp */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
@@ -70,6 +71,8 @@
 		6842219E1BBB7C8B0031618D /* libopencv_videostab.2.4.11.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_videostab.2.4.11.dylib; path = /usr/local/Cellar/opencv/2.4.11_1/lib/libopencv_videostab.2.4.11.dylib; sourceTree = "<absolute>"; };
 		684221B11BBB7C970031618D /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		684221B31BBB7C9F0031618D /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
+		688D804A1BD5FC22007814B4 /* gl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = gl.cpp; sourceTree = "<group>"; };
+		688D804B1BD5FC22007814B4 /* gl.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = gl.hpp; sourceTree = "<group>"; };
 		68F4D9BB1BD10AEB00FB55E2 /* geo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = geo.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -161,10 +164,20 @@
 			isa = PBXGroup;
 			children = (
 				684221861BBB7C0B0031618D /* main.cpp */,
+				688D804D1BD60F08007814B4 /* gl */,
 				680BA4C61BD5632D00B13B1A /* ray */,
 				68F4D9BE1BD111C900FB55E2 /* position */,
 			);
 			path = opencv_opengl;
+			sourceTree = "<group>";
+		};
+		688D804D1BD60F08007814B4 /* gl */ = {
+			isa = PBXGroup;
+			children = (
+				688D804A1BD5FC22007814B4 /* gl.cpp */,
+				688D804B1BD5FC22007814B4 /* gl.hpp */,
+			);
+			name = gl;
 			sourceTree = "<group>";
 		};
 		68F4D9BE1BD111C900FB55E2 /* position */ = {
@@ -232,6 +245,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				688D804C1BD5FC22007814B4 /* gl.cpp in Sources */,
 				680BA4C51BD5632800B13B1A /* ray.cpp in Sources */,
 				68F4D9BD1BD10AEB00FB55E2 /* geo.cpp in Sources */,
 				684221871BBB7C0B0031618D /* main.cpp in Sources */,

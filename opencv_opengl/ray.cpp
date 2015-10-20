@@ -10,7 +10,7 @@
 #include <iostream>
 #include <math.h>
 
-
+/****** 三浦さんプログラム使用 *********
 // イメージセンサ内 x方向距離[m]
 double Ray::xImageSensor(double x, double y, double focalLength, double xPx) {
     double xHalf = (focalLength * x) / y;
@@ -32,4 +32,17 @@ int Ray::yPixel(double y, double height, double horizon, double focalLength, dou
     double b = theta + a;
     int yImg = ceil((focalLength * tan(b)) / px);
     return yImg;
+}
+
+*********************************/
+
+
+// イメージセンサ内 px数計算メソッド
+//(position:対象の位置[m], z:対象の正船首距離[m], sensorSize:イメージセンササイズ, imageLength:イメージセンサの分割数)
+int Ray::shipPixel(double position, double z,
+                   double focalLength, double sensorSize, double imageLength) {
+    double l = (focalLength * position) / z;
+    double m = (sensorSize / 2.0) + l;
+    double px = m / sensorSize * imageLength;
+    return ceil(px);
 }

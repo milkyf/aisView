@@ -13,6 +13,7 @@ class Ray{
 private:
     
 public:
+    /****** 三浦さんプログラム使用 *************
     // イメージセンサ内 x方向距離[mm]
     double xImageSensor(double x, double y, double focalLength, double xPx);
     
@@ -21,6 +22,9 @@ public:
     
     // イメージセンサ内 y方向距離[mm]
     int yPixel(double y, double height, double horizon, double focalLength, double px);
+     ********************************/
+    
+    int shipPixel(double position, double z, double focalLength, double sensorSize, double imageLength);
 };
 
 #endif /* ray_hpp */

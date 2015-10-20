@@ -45,7 +45,7 @@ public:
     // "方位角計算メソッド"
     double angle(double lat0, double long0, double lat1, double long1, double distance);
     // "正船首方向距離(y)メソッド"
-    double y(double distance, double shipAngle, double gazeDirection);
+    double z(double distance, double shipAngle, double gazeDirection);
     // "正横方向距離(x)メソッド"
     double x(double distance, double shipAngle, double gazeDirection);
 };
