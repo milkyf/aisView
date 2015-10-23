@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		680907171BDA98EB00D08C31 /* aivdm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 680907151BDA98EB00D08C31 /* aivdm.cpp */; settings = {ASSET_TAGS = (); }; };
 		680BA4C51BD5632800B13B1A /* ray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 680BA4C31BD5632800B13B1A /* ray.cpp */; settings = {ASSET_TAGS = (); }; };
 		684221871BBB7C0B0031618D /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 684221861BBB7C0B0031618D /* main.cpp */; };
 		6842219F1BBB7C8B0031618D /* libopencv_calib3d.2.4.11.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6842218D1BBB7C8B0031618D /* libopencv_calib3d.2.4.11.dylib */; };
@@ -46,6 +47,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		680907151BDA98EB00D08C31 /* aivdm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = aivdm.cpp; sourceTree = "<group>"; };
+		680907161BDA98EB00D08C31 /* aivdm.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = aivdm.hpp; sourceTree = "<group>"; };
 		680BA4C31BD5632800B13B1A /* ray.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ray.cpp; sourceTree = "<group>"; };
 		680BA4C41BD5632800B13B1A /* ray.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ray.hpp; sourceTree = "<group>"; };
 		680BA4C81BD56C2B00B13B1A /* geo.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = geo.hpp; sourceTree = "<group>"; };
@@ -141,6 +144,15 @@
 			name = OpenCV;
 			sourceTree = "<group>";
 		};
+		6830B0521BDA26800045697D /* aivdm */ = {
+			isa = PBXGroup;
+			children = (
+				680907151BDA98EB00D08C31 /* aivdm.cpp */,
+				680907161BDA98EB00D08C31 /* aivdm.hpp */,
+			);
+			name = aivdm;
+			sourceTree = "<group>";
+		};
 		6842217A1BBB7C0B0031618D = {
 			isa = PBXGroup;
 			children = (
@@ -164,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				684221861BBB7C0B0031618D /* main.cpp */,
+				6830B0521BDA26800045697D /* aivdm */,
 				688D804D1BD60F08007814B4 /* gl */,
 				680BA4C61BD5632D00B13B1A /* ray */,
 				68F4D9BE1BD111C900FB55E2 /* position */,
@@ -248,6 +261,7 @@
 				688D804C1BD5FC22007814B4 /* gl.cpp in Sources */,
 				680BA4C51BD5632800B13B1A /* ray.cpp in Sources */,
 				68F4D9BD1BD10AEB00FB55E2 /* geo.cpp in Sources */,
+				680907171BDA98EB00D08C31 /* aivdm.cpp in Sources */,
 				684221871BBB7C0B0031618D /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

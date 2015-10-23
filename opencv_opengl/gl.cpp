@@ -10,6 +10,8 @@
 #include "geo.hpp"
 #include "ray.hpp"
 #include "gl.hpp"
+#include "aivdm.hpp"
+
 
 /* グローバル変数 */
 
@@ -103,6 +105,22 @@ shipPx_t shipPixel(int mmsi, double otherLatitude,
 }
 
 
+std::multimap<int, type1> readMap;
+std::map<int, type1> latestMp;
+
+void readCSV(std::string filepass) {
+    Aivdm aivdm;
+    readMap = aivdm.readMap(filepass);
+}
+
+
+int startTime(std::multimap<int, type1> mp) {
+    auto itr = mp.begin();
+    ++itr;
+    return itr->first;
+}
+
+
 // openGL, openCV : 描画関数
 void display(void) {
     
@@ -110,6 +128,9 @@ void display(void) {
     own_t own;
     picture_t picture;
     shipPx_t shipPx;
+    
+    Aivdm aivdm;
+
     
     // キャプチャ描画
     captureDraw(capture);
@@ -121,29 +142,37 @@ void display(void) {
     glVertex2d(captureWidth * widthMagnification, picture.horizon * heightMagnification);
     glEnd();
     
+    int start = startTime(readMap);
+    int now = aivdm.timeStamp(msec, start);
+    latestMp = aivdm.latestMp(now, readMap);
     
+    std::cout << start << std::endl;
+    std::cout << now << std::endl;
     
+    for (auto itr = latestMp.begin(); itr != latestMp.end(); ++itr) {
+        int mmsi = itr->first;
+        int t = itr->second.time;
+        double latitude = itr->second.latitude;
+        double longitude = itr->second.longitude;
+        double height = 0.0;
     
-    double latitude = 35.262994;
-    double longitude = 139.766697;
-    double height = 0.0;
-    
-    // 二点間の緯度経度高度から距離を求める
-    shipPx = shipPixel(1234567, latitude, longitude, height, camera, own, picture);
-    std::cout << "[mmsi, x, y] = [" << shipPx.mmsi << ", " << shipPx.x
-    << ", " << shipPx.y << "]" << std::endl;
-    
-    
-    // 距離描画
-    glColor3d(1.0, 0.0, 0.0);
-    glPointSize(1.0);
-    glBegin(GL_POINTS);
+        // 二点間の緯度経度高度から距離を求める
+        shipPx = shipPixel(mmsi, latitude, longitude, height, camera, own, picture);
+        std::cout << "[time, mmsi, x, y] = [" << t << ", " << shipPx.mmsi << ", " << shipPx.x
+        << ", " << shipPx.y << "]" << std::endl;
+        
+        // 距離描画
+        glColor3d(1.0, 0.0, 0.0);
+        glPointSize(1.0);
+        glBegin(GL_POINTS);
         glVertex2d(shipPx.x * widthMagnification, shipPx.y * heightMagnification);
-    glEnd();
-    
+        glEnd();
+    }
     
     glFlush();
     glutPostRedisplay();
+    
+    msec += 1000;
 }
 
 

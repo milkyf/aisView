@@ -9,12 +9,15 @@
 #include <iostream>
 #include "gl.hpp"
 
+
 // ディスプレイサイズ
 #define displayWidth 1280
 #define displayHeight 800
 
 // mainメソッド
 int main(int argc, char *argv[]) {
+    
+    readCSV("/Users/zenju/Documents/XcodeProject/aivdm/dec1.csv");
     
     glutInit(&argc, argv);
     

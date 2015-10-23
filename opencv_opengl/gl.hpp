@@ -13,6 +13,7 @@
 #include <GLUT/GLUT.h>
 #include <opencv2/opencv.hpp>
 
+void readCSV(std::string filepass);
 void display(void);
 void keyboard(unsigned char key, int x, int y);
 void captureDraw(cv::VideoCapture capture);
